@@ -3636,7 +3636,7 @@
         handleWindowResize();
         window.addEventListener("resize", handleWindowResize);
     }));
-    window["FLS"] = true;
+    window["FLS"] = false;
     menuInit();
     pageNavigation();
 })();
