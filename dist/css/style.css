@@ -164,6 +164,77 @@ h6 {
 .icon-menu {
   display: none
 }
+body::after {
+  content: "";
+  background: rgba(0,0,0,.48);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .8s ease 0s;
+  pointer-events: none;
+  z-index: 149
+}
+.popup-show body::after {
+  opacity: 1
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 10px;
+  transition: visibility .8s ease 0s;
+  visibility: hidden;
+  pointer-events: none
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto
+}
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1)
+}
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.popup__content {
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  width: 100%;
+  max-width: 866px;
+  position: relative
+}
+.lock .popup__content {
+  visibility: visible
+}
+.popup__close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: 5
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -337,6 +408,7 @@ h6 {
   border-radius: 6px;
   display: inline-flex;
   flex-direction: row-reverse;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   transition: all .3s;
@@ -904,6 +976,80 @@ h6 {
   transform: rotate(-90deg);
   font-size: 2.125rem
 }
+.contact__form {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  max-width: 866px;
+  margin: 0 auto;
+  border-radius: 26px;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.05)
+}
+.contact__form-end {
+  display: none
+}
+.contact__form-title {
+  line-height: 120%;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center
+}
+.contact__form-subtitle {
+  max-width: 530px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 120%;
+  margin-bottom: 2rem
+}
+.contact__form-item {
+  margin-bottom: .625rem;
+  position: relative
+}
+.contact__form-item label {
+  font-weight: 600;
+  line-height: 120%;
+  margin-bottom: .625rem;
+  display: block
+}
+.contact__form-item input {
+  padding: 19px 17px;
+  border-radius: 8px;
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  box-shadow: 0 1.333px 2.667px 0 rgba(0,0,0,.05);
+  font-size: 1.5rem;
+  line-height: 120%
+}
+.contact__form-item input._form-error {
+  border: 1px solid #ff0606;
+  background: #feeded
+}
+.contact__form-item input:focus {
+  outline: 0
+}
+.contact__form-item .form__error {
+  font-size: 1rem;
+  color: #fe4134;
+  font-weight: 600;
+  line-height: 120%;
+  position: absolute;
+  top: 2px;
+  right: 10px
+}
+.contact__form-button {
+  padding: 26px;
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 13px;
+  margin-bottom: .875rem
+}
+.contact__form-subtext {
+  text-align: center;
+  line-height: 120%
+}
+.contact__form-subtext a {
+  text-decoration: underline
+}
 .swiper {
   overflow: hidden
 }
@@ -959,6 +1105,21 @@ h6 {
   }
   .restaurants__slide-button {
     height: 4.125rem
+  }
+  .contact__form {
+    padding: 3.75rem
+  }
+  .contact__form-title {
+    font-size: 4rem
+  }
+  .contact__form-subtitle {
+    font-size: 1.5rem
+  }
+  .contact__form-item label {
+    font-size: 1.3125rem
+  }
+  .contact__form-subtext {
+    font-size: 1.3125rem
   }
 }
 @media (min-width:75em) {
@@ -1115,6 +1276,9 @@ h6 {
   .menu__nav-item {
     width: 100%;
     text-align: center
+  }
+  .menu__nav-button {
+    width: 100%
   }
   .menu__lang-active {
     display: none
@@ -1356,6 +1520,23 @@ h6 {
   .collaboration__slide-next {
     right: 5px
   }
+  .contact__form {
+    border-radius: 20px;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.05)
+  }
+  .contact__form-title {
+    margin-bottom: .625rem
+  }
+  .contact__form-subtitle {
+    margin-bottom: 1rem
+  }
+  .contact__form-item input {
+    padding: 10px 14px
+  }
+  .contact__form-button {
+    margin-top: 1.5rem;
+    padding: 16px
+  }
 }
 @media (max-width:47.99875em) and (any-hover:none) {
   .icon-menu {
@@ -1379,6 +1560,21 @@ h6 {
   }
   .restaurants__slide-button {
     height: 2.25rem
+  }
+  .contact__form {
+    padding: 1.25rem
+  }
+  .contact__form-title {
+    font-size: 2.25rem
+  }
+  .contact__form-subtitle {
+    font-size: 1rem
+  }
+  .contact__form-item label {
+    font-size: 1rem
+  }
+  .contact__form-subtext {
+    font-size: 1rem
   }
 }
 @media (min-width:47.99875em) and (max-width:75em) {
@@ -1531,6 +1727,56 @@ h6 {
   @supports not (height:clamp(2.25rem ,1.3187086093rem + 3.9735099338vw ,4.125rem)) {
     .restaurants__slide-button {
       height: calc(2.25rem + 1.875 * (100vw - 23.4375rem)/ 47.1875)
+    }
+  }
+  @supports (padding:clamp(1.25rem ,0.0082781457rem + 5.298013245vw ,3.75rem)) {
+    .contact__form {
+      padding: clamp(1.25rem ,.0082781457rem + 5.298013245vw ,3.75rem)
+    }
+  }
+  @supports not (padding:clamp(1.25rem ,0.0082781457rem + 5.298013245vw ,3.75rem)) {
+    .contact__form {
+      padding: calc(1.25rem + 2.5 * (100vw - 23.4375rem)/ 47.1875)
+    }
+  }
+  @supports (font-size:clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)) {
+    .contact__form-title {
+      font-size: clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)
+    }
+  }
+  @supports not (font-size:clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)) {
+    .contact__form-title {
+      font-size: calc(2.25rem + 1.75 * (100vw - 23.4375rem)/ 47.1875)
+    }
+  }
+  @supports (font-size:clamp(1rem ,0.7516556291rem + 1.059602649vw ,1.5rem)) {
+    .contact__form-subtitle {
+      font-size: clamp(1rem ,.7516556291rem + 1.059602649vw ,1.5rem)
+    }
+  }
+  @supports not (font-size:clamp(1rem ,0.7516556291rem + 1.059602649vw ,1.5rem)) {
+    .contact__form-subtitle {
+      font-size: calc(1rem + .5 * (100vw - 23.4375rem)/ 47.1875)
+    }
+  }
+  @supports (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
+    .contact__form-item label {
+      font-size: clamp(1rem ,.8447847682rem + .6622516556vw ,1.3125rem)
+    }
+  }
+  @supports not (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
+    .contact__form-item label {
+      font-size: calc(1rem + .3125 * (100vw - 23.4375rem)/ 47.1875)
+    }
+  }
+  @supports (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
+    .contact__form-subtext {
+      font-size: clamp(1rem ,.8447847682rem + .6622516556vw ,1.3125rem)
+    }
+  }
+  @supports not (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
+    .contact__form-subtext {
+      font-size: calc(1rem + .3125 * (100vw - 23.4375rem)/ 47.1875)
     }
   }
 }
