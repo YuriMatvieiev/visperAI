@@ -223,7 +223,7 @@ body::after {
   transition: transform .3s ease 0s;
   transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
   width: 100%;
-  max-width: 866px;
+  max-width: 650px;
   position: relative
 }
 .lock .popup__content {
@@ -980,10 +980,11 @@ body::after {
   position: relative;
   z-index: 2;
   background: #fff;
-  max-width: 866px;
+  max-width: 650px;
   margin: 0 auto;
-  border-radius: 26px;
-  box-shadow: 0 0 40px 0 rgba(0,0,0,.05)
+  border-radius: 20px;
+  box-shadow: 0 0 30px 0 rgba(0,0,0,.05);
+  padding: 50px
 }
 .contact__form-end {
   display: none
@@ -991,34 +992,36 @@ body::after {
 .contact__form-title {
   line-height: 120%;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: .625rem;
   text-align: center
 }
 .contact__form-subtitle {
-  max-width: 530px;
+  max-width: 390px;
   margin: 0 auto;
   text-align: center;
   line-height: 120%;
-  margin-bottom: 2rem
+  margin-bottom: 1.625rem;
+  font-size: 1.125rem
 }
 .contact__form-item {
-  margin-bottom: .625rem;
+  margin-bottom: .375rem;
   position: relative
 }
 .contact__form-item label {
   font-weight: 600;
   line-height: 120%;
-  margin-bottom: .625rem;
-  display: block
+  margin-bottom: .25rem;
+  display: block;
+  font-size: 1rem
 }
 .contact__form-item input {
-  padding: 19px 17px;
+  padding: 16px 17px;
   border-radius: 8px;
   border: 1px solid #d5d5d5;
   background: #fff;
   box-shadow: 0 1.333px 2.667px 0 rgba(0,0,0,.05);
-  font-size: 1.5rem;
-  line-height: 120%
+  font-size: 1.125rem;
+  line-height: 110%
 }
 .contact__form-item input._form-error {
   border: 1px solid #ff0606;
@@ -1037,14 +1040,15 @@ body::after {
   right: 10px
 }
 .contact__form-button {
-  padding: 26px;
+  padding: 20px;
   width: 100%;
   margin-top: 2rem;
   border-radius: 13px;
-  margin-bottom: .875rem
+  margin-bottom: .5rem
 }
 .contact__form-subtext {
   text-align: center;
+  font-size: 1rem;
   line-height: 120%
 }
 .contact__form-subtext a {
@@ -1106,20 +1110,8 @@ body::after {
   .restaurants__slide-button {
     height: 4.125rem
   }
-  .contact__form {
-    padding: 3.75rem
-  }
   .contact__form-title {
-    font-size: 4rem
-  }
-  .contact__form-subtitle {
-    font-size: 1.5rem
-  }
-  .contact__form-item label {
-    font-size: 1.3125rem
-  }
-  .contact__form-subtext {
-    font-size: 1.3125rem
+    font-size: 3rem
   }
 }
 @media (min-width:75em) {
@@ -1236,6 +1228,10 @@ body::after {
     bottom: calc(50% - .0625rem);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
+  }
+  .popup__close {
+    top: 8px;
+    right: 8px
   }
   .header {
     padding: 20px 0
@@ -1521,21 +1517,25 @@ body::after {
     right: 5px
   }
   .contact__form {
-    border-radius: 20px;
-    box-shadow: 0 0 30px 0 rgba(0,0,0,.05)
+    padding: 20px 30px
   }
   .contact__form-title {
     margin-bottom: .625rem
   }
   .contact__form-subtitle {
-    margin-bottom: 1rem
+    margin-bottom: .625rem;
+    font-size: 1rem
+  }
+  .contact__form-item label {
+    margin-bottom: .5rem
   }
   .contact__form-item input {
-    padding: 10px 14px
+    padding: 14px 14px
   }
   .contact__form-button {
-    margin-top: 1.5rem;
-    padding: 16px
+    margin-top: 2.125rem;
+    padding: 20px;
+    font-size: 1.1875rem
   }
 }
 @media (max-width:47.99875em) and (any-hover:none) {
@@ -1561,20 +1561,8 @@ body::after {
   .restaurants__slide-button {
     height: 2.25rem
   }
-  .contact__form {
-    padding: 1.25rem
-  }
   .contact__form-title {
     font-size: 2.25rem
-  }
-  .contact__form-subtitle {
-    font-size: 1rem
-  }
-  .contact__form-item label {
-    font-size: 1rem
-  }
-  .contact__form-subtext {
-    font-size: 1rem
   }
 }
 @media (min-width:47.99875em) and (max-width:75em) {
@@ -1729,54 +1717,14 @@ body::after {
       height: calc(2.25rem + 1.875 * (100vw - 23.4375rem)/ 47.1875)
     }
   }
-  @supports (padding:clamp(1.25rem ,0.0082781457rem + 5.298013245vw ,3.75rem)) {
-    .contact__form {
-      padding: clamp(1.25rem ,.0082781457rem + 5.298013245vw ,3.75rem)
-    }
-  }
-  @supports not (padding:clamp(1.25rem ,0.0082781457rem + 5.298013245vw ,3.75rem)) {
-    .contact__form {
-      padding: calc(1.25rem + 2.5 * (100vw - 23.4375rem)/ 47.1875)
-    }
-  }
-  @supports (font-size:clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)) {
+  @supports (font-size:clamp(2.25rem ,1.8774834437rem + 1.5894039735vw ,3rem)) {
     .contact__form-title {
-      font-size: clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)
+      font-size: clamp(2.25rem ,1.8774834437rem + 1.5894039735vw ,3rem)
     }
   }
-  @supports not (font-size:clamp(2.25rem ,1.380794702rem + 3.7086092715vw ,4rem)) {
+  @supports not (font-size:clamp(2.25rem ,1.8774834437rem + 1.5894039735vw ,3rem)) {
     .contact__form-title {
-      font-size: calc(2.25rem + 1.75 * (100vw - 23.4375rem)/ 47.1875)
-    }
-  }
-  @supports (font-size:clamp(1rem ,0.7516556291rem + 1.059602649vw ,1.5rem)) {
-    .contact__form-subtitle {
-      font-size: clamp(1rem ,.7516556291rem + 1.059602649vw ,1.5rem)
-    }
-  }
-  @supports not (font-size:clamp(1rem ,0.7516556291rem + 1.059602649vw ,1.5rem)) {
-    .contact__form-subtitle {
-      font-size: calc(1rem + .5 * (100vw - 23.4375rem)/ 47.1875)
-    }
-  }
-  @supports (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
-    .contact__form-item label {
-      font-size: clamp(1rem ,.8447847682rem + .6622516556vw ,1.3125rem)
-    }
-  }
-  @supports not (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
-    .contact__form-item label {
-      font-size: calc(1rem + .3125 * (100vw - 23.4375rem)/ 47.1875)
-    }
-  }
-  @supports (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
-    .contact__form-subtext {
-      font-size: clamp(1rem ,.8447847682rem + .6622516556vw ,1.3125rem)
-    }
-  }
-  @supports not (font-size:clamp(1rem ,0.8447847682rem + 0.6622516556vw ,1.3125rem)) {
-    .contact__form-subtext {
-      font-size: calc(1rem + .3125 * (100vw - 23.4375rem)/ 47.1875)
+      font-size: calc(2.25rem + .75 * (100vw - 23.4375rem)/ 47.1875)
     }
   }
 }
